@@ -4,7 +4,6 @@ import net.fabricmc.api.ModInitializer;
 
 import net.mat0u5.focusedwardens.config.ConfigManager;
 import net.mat0u5.focusedwardens.utils.ModRegistries;
-import net.minecraft.component.DataComponentTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

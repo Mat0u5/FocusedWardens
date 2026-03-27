@@ -1,21 +1,16 @@
 package net.mat0u5.focusedwardens.events;
 
-
-
 import net.mat0u5.focusedwardens.Main;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.mob.WardenEntity;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.gameevent.GameEvent;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 public class Events {
 
     public static void register() {
     }
-    public static void wardenListen(GameEvent.Emitter emitter, CallbackInfoReturnable<Boolean> cir) {
+    public static void wardenListen(GameEvent.Context emitter, CallbackInfoReturnable<Boolean> cir) {
         String enabled = Main.config.getProperty("enabled");
         if (enabled == null) return;
         if (!enabled.equalsIgnoreCase("true")) return;
@@ -31,7 +26,7 @@ public class Events {
 
         String ignoreNonPlayerSounds = Main.config.getProperty("ignoreNonPlayerSounds");
         if (ignoreNonPlayerSounds != null) {
-            if (!(sourceEntity instanceof ServerPlayerEntity) && ignoreNonPlayerSounds.equalsIgnoreCase("true")) {
+            if (!(sourceEntity instanceof ServerPlayer) && ignoreNonPlayerSounds.equalsIgnoreCase("true")) {
                 cir.setReturnValue(false);
             }
         }

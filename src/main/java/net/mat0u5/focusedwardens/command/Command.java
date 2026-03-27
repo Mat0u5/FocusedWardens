@@ -1,24 +1,21 @@
 package net.mat0u5.focusedwardens.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.mat0u5.focusedwardens.Main;
-import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.commands.CommandBuildContext;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.command.CommandManager;
-import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.world.entity.player.Player;
 
-import java.util.Collection;
-
-import static net.minecraft.server.command.CommandManager.literal;
+import static net.minecraft.commands.Commands.literal;
 
 
 public class Command {
 
-    public static void register(CommandDispatcher<ServerCommandSource> serverCommandSourceCommandDispatcher,
-                                CommandRegistryAccess commandRegistryAccess,
-                                CommandManager.RegistrationEnvironment registrationEnvironment) {
+    public static void register(CommandDispatcher<CommandSourceStack> serverCommandSourceCommandDispatcher,
+                                CommandBuildContext commandRegistryAccess,
+                                Commands.CommandSelection registrationEnvironment) {
         serverCommandSourceCommandDispatcher.register(
             literal("focusedwardens")
                 .then(literal("enable")
@@ -72,9 +69,9 @@ public class Command {
                 )
         );
     }
-    public static int setConfigValue(ServerCommandSource source, String configName, String value) {
+    public static int setConfigValue(CommandSourceStack source, String configName, String value) {
         MinecraftServer server = source.getServer();
-        final PlayerEntity self = source.getPlayer();
+        final Player self = source.getPlayer();
         Main.config.setProperty(configName,value);
         return 1;
     }
