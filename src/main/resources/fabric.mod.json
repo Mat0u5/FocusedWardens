@@ -1,34 +1,27 @@
 {
-	"schemaVersion": 1,
-	"id": "focusedwardens",
-	"version": "${version}",
-	"name": "Focused Wardens",
-	"description": "This mod makes wardens ignore all sounds that are not created by a player!",
-	"authors": [
-		"Mat0u5"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/Mat0u5/Minecraft-FocusedWardens"
-	},
-	"license": "MIT",
-	"icon": "assets/focusedwardens/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"net.mat0u5.focusedwardens.Main"
-		]
-	},
-	"mixins": [
-		"focusedwardens.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.14.21",
-		"minecraft": ">=26.1",
-		"java": ">=25",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "${id}",
+  "name": "${name}",
+  "version": "${version}",
+  "authors": ["${authors}"],
+  "contributors": ["${contributors}"],
+  "contact": {
+    "sources": "${sources_url}",
+    "issues": "${issues_url}",
+    "homepage": "${homepage_url}"
+  },
+  "description": "${description}",
+  "icon": "icon.png",
+  "license": "${license}",
+  "environment": "*",
+  "accessWidener": "aw/${sc_version}.accesswidener",
+  "entrypoints": {
+    "main": [
+      "${group}.${id}.platform.fabric.FabricEntrypoint"
+    ]
+  },
+  "mixins": [
+    "${id}.mixins.json"
+  ],
+  "depends": {}
 }

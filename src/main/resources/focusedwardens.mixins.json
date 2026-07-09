@@ -1,11 +1,15 @@
 {
-	"required": true,
-	"package": "net.mat0u5.focusedwardens.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"VibrationListenerMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+  "package": "net.mat0u5.focusedwardens.mixin",
+  "required": true,
+  "minVersion": "0.8",
+  "refmap": "${id}.mixins.refmap.json",
+  "compatibilityLevel": "${java}",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "CommandsMixin",
+    "VibrationListenerMixin"
+  ],
+  "client": []
 }
